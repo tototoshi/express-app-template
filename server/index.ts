@@ -1,3 +1,5 @@
+require("source-map-support").install();
+
 import express from "express";
 
 const app = express();
