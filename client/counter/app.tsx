@@ -1,5 +1,5 @@
 import "./app.scss";
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 
 type CounterAction =
   | {
@@ -22,12 +22,31 @@ function reducer(state: CounterState, action: CounterAction): CounterState {
     case "decrement":
       return { count: state.count - 1 };
     default:
-      return state;
+      throw new Error();
   }
 }
 
+const CounterContext = React.createContext<{
+  state: CounterState;
+  dispatch: (action: CounterAction) => void;
+}>(undefined);
+
 function CounterApp() {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <CounterContext.Provider value={{ state, dispatch }}>
+      <div>
+        <span>Count: </span>
+        <span>{state.count}</span>
+      </div>
+      <Buttons />
+    </CounterContext.Provider>
+  );
+}
+
+function Buttons() {
+  const { dispatch } = useContext(CounterContext);
 
   function handleClickPlus(e: React.MouseEvent): void {
     dispatch({ type: "increment" });
@@ -39,14 +58,8 @@ function CounterApp() {
 
   return (
     <div>
-      <div>
-        <span>Count: </span>
-        <span>{state.count}</span>
-      </div>
-      <div>
-        <button onClick={handleClickPlus}>+</button>
-        <button onClick={handleClickMinus}>-</button>
-      </div>
+      <button onClick={handleClickPlus}>+</button>
+      <button onClick={handleClickMinus}>-</button>
     </div>
   );
 }
