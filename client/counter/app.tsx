@@ -1,5 +1,6 @@
 import "./app.scss";
 import React, { useReducer, useContext } from "react";
+import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 
 type CounterAction =
   | {
@@ -58,8 +59,12 @@ function Buttons() {
 
   return (
     <div>
-      <button onClick={handleClickPlus}>+</button>
-      <button onClick={handleClickMinus}>-</button>
+      <button onClick={handleClickPlus}>
+        <PlusOutlined />
+      </button>
+      <button onClick={handleClickMinus}>
+        <MinusOutlined />
+      </button>
     </div>
   );
 }
