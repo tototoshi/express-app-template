@@ -27,10 +27,13 @@ function reducer(state: CounterState, action: CounterAction): CounterState {
   }
 }
 
-const CounterContext = React.createContext<{
+interface CounterContext {
   state: CounterState;
   dispatch: (action: CounterAction) => void;
-}>(undefined);
+}
+
+// @ts-ignore: ignore default value
+const CounterContext = React.createContext<CounterContext>(undefined);
 
 function CounterApp() {
   const [state, dispatch] = useReducer(reducer, initialState);
