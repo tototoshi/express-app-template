@@ -1,7 +1,0 @@
-#!/bin/bash
-
-pwd
-
-prettier . --write
-webpack
-tsc --project tsconfig.server.json

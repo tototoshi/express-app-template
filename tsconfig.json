@@ -8,6 +8,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "jsx": "react"
-  }
+    "outDir": "dist/"
+  },
+  "include": ["src"]
 }
