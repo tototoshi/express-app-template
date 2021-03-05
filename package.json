@@ -13,7 +13,7 @@
     "@types/pug": "^2.0.4",
     "prettier": "^2.0.5",
     "sass": "^1.26.7",
-    "sass-loader": "^8.0.2",
+    "sass-loader": "^11.0.1",
     "typescript": "^3.9.3"
   }
 }
