@@ -1,2 +1,2 @@
-# -app-template
+# express-app-template
 
