@@ -13,5 +13,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
     - run: npm install && make build
